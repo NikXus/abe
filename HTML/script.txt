@@ -1,0 +1,21 @@
+        <script>
+            function addToCart(button) {
+                button.innerText = "Added!";
+                button.classList.add("added");
+                setTimeout(() => {
+                    button.innerText = "Add to Cart";
+                    button.classList.remove("added");
+                }, 2000);
+            }
+           
+         
+            function buyNow(button) {
+            button.innerText = "Purchased!";
+            button.classList.add("purchased");
+            setTimeout(() => {
+                button.innerText = "Buy Now";
+                button.classList.remove("purchased");
+            }, 1500);
+        }
+        </script>
+        

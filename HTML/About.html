@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frozen Goods</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f8f8;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        .nav-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 80px;
+        }
+        .product {
+            background: rgba(128, 128, 128, 0.75);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3, .product p {
+            color: white;
+        }
+        .btn {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn.added {
+            background: #28a745;
+            color: white;
+            transform: scale(1.1);
+        }
+        .btn.buy {
+            background: #007bff;
+            color: white;
+        }
+        .btn.buy.purchased {
+            background: #dc3545;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">Frozen Goods</div>
+        <div class="nav-links">
+            <a href="#">Frozen Meats</a>
+            <a href="#">Chicken</a>
+            <a href="#">Beef & Pork</a>
+            <a href="#">Family Packs</a>
+            <a href="#">Bulk Orders</a>
+        </div>
+    </nav>
+
+    <section class="container">
+        <div class="product">
+            <img src="1.png" alt="Frozen Whole Chickens">
+            <h3>Frozen Whole Chickens</h3>
+            <p>$19.99</p>
+            <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+            <button class="btn buy" onclick="buyNow(this)">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="2.png" alt="Frozen Beef Steaks">
+            <h3>Frozen Beef Steaks</h3>
+            <p>$14.99</p>
+            <button class="btn" onclick="addToCart(this)">Add to Cart</button>
+            <button class="btn buy" onclick="buyNow(this)">Buy Now</button>
+        </div>
+        <!-- Add more products here -->
+    </section>
+
+    <script>
+        function addToCart(button) {
+            button.innerText = "Added!";
+            button.classList.add("added");
+            setTimeout(() => {
+                button.innerText = "Add to Cart";
+                button.classList.remove("added");
+            }, 1500);
+        }
+
+        function buyNow(button) {
+            button.innerText = "Purchased!";
+            button.classList.add("purchased");
+            setTimeout(() => {
+                button.innerText = "Buy Now";
+                button.classList.remove("purchased");
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
